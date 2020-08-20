@@ -26,7 +26,7 @@ int main(){
         //cout<<newString<<endl;
         for(int j=0;j<common.size()&&j<newString.size();j++){
             if(common[j]!=newString[j]){
-                common=common.substr(0,j);
+                common=common.substr(0,j);  //注意字符串的复制方法而不是简单改那位为'\0'
                 break;
             }
         }
