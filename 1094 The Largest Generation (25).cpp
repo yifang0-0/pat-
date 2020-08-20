@@ -25,9 +25,6 @@ void createTree(int level,int id){
     Node newNode;
     newNode.id=id;
     newNode.level=level;
-    //cout<<newNode.id<<" id"<<newNode.level<<" level"<<endl;
-    //newNode->firstChild=NULL;
-    //newNode->chilsSib=NULL;
     if(nodesInfo.find(id)!=nodesInfo.end()){
         //有子
       vector<int>kidsBuild;
