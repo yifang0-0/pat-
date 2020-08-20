@@ -1,7 +1,10 @@
+
+
 #include <string>
+#include <stdio.h>
 #include <iostream>
 #include <algorithm>
-
+using namespace std;
 //寻找最长公共尾子串
 //第一次输入反转字符串 作为最新的公共字串
 //此后每一次都输入后反转然后比较 一旦发现有不同的字符 设置'\0'
@@ -10,21 +13,26 @@
 
 int main(){
     int a ;
-    cin>>a;
+    scanf("%d\n",&a);
     string common;
-    cin>>common;
-    common=reverse(common.begin(),common.end());
-    
+    getline(cin,common);
+    reverse(common.begin(),common.end());
     for (int i=1;i<a;i++){
         string newString;
-        newString=reverse(ommon.begin(),common.end());
-        for(int j=0;j<common.size();j++){
+        getline(cin,newString);
+        cout<<i<<endl;
+        //cout<<newString<<endl;
+        reverse(newString.begin(),newString.end());
+        //cout<<newString<<endl;
+        for(int j=0;j<common.size()&&j<newString.size();j++){
             if(common[j]!=newString[j]){
-                common[j]='\0';
+                common=common.substr(0,j);
                 break;
             }
         }
     }
     if(common.size()==0)cout<<"nai"<<endl;
-    else cout<<reverse(common.begin(),common.end())<<endl;
+    else {reverse(common.begin(),common.end());
+    cout<<common<<endl;
+    }
 }
