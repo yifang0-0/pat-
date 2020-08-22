@@ -23,16 +23,15 @@ int main(){
  int flag=0;
  sort(strParts.begin(),strParts.end(),cmp);
  for(int i=0;i<strParts.size();i++){
-     if(i==0){
-         for(int j=0;j<strParts[i].size();j++){
-             if(flag==1||strParts[i][j]!='0'){
-                 cout<<strParts[i][j];
-                 flag=1;
-                 }
-         }
+     if(flag==0){
+             for(int j=0;j<strParts[i].size();j++){
+                 if(flag==1||strParts[i][j]!='0'){
+                     cout<<strParts[i][j];
+                     flag=1;
+                     }
+            }
      }
      else{
-         flag=1;
          cout<<strParts[i];
      }
  }
