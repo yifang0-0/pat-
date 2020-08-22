@@ -1,9 +1,11 @@
 #include <iostream>
-#include <stdio.h>
+//#include <stdio.h>
 #include <queue>
 #include <map>
 #include <vector>
 #include <algorithm>
+#include <cstring>
+
 using namespace std;
 
 //思路
@@ -35,17 +37,17 @@ int main(){
         int maxSerNum,minA,maxA;
         cin>> maxSerNum>>minA>>maxA;
         int curOut=0;
-        cout<<"Case #"<<i+1<<":"<<endl;
+        printf("Case #%d:\n",i+1);
+        //cout<<"Case #"<<i+1<<":"<<endl;
         for(int j=0;j<allInfo.size();j++){
             if(allInfo[j].age<=maxA&&allInfo[j].age>=minA){
                 if(curOut<maxSerNum){
                     cout<<allInfo[j].name<<' '<<allInfo[j].age<<' '<<allInfo[j].worth<<endl;
+                    //printf("%s %d %d\n",allInfo[j].name,allInfo[j].age,allInfo[j].worth);
                     curOut+=1;
                 }
             }
         }
         if(curOut==0)cout<<"None"<<endl;
     }
-    
-
 }
