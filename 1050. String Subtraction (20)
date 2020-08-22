@@ -4,7 +4,7 @@
 #include <map>
 using namespace std;
 //20:37-20:44
-//水题
+//水
 //输入的另外一种方式 cin.getline(s2, 100000);
 int main(){
     string ori;
