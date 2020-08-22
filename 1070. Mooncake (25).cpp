@@ -7,7 +7,7 @@ using namespace std;
 //21:48-22:08
 // N (<=1000), 月饼种类
 // D (<=500 thousand tons), 市场需求
-
+//水
 //分月饼 
 bool cmp(pair<double,int> a,pair<double,int> b){
     return (a.second/a.first>b.second/b.first)||(((a.second/a.first)==(b.second/b.first))&&(a.first>=b.first));
