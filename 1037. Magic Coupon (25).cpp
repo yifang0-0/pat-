@@ -57,7 +57,4 @@ int main(){
     cout<<sum<<endl;
     //最大的正c与最大的正p
     //小的正p与最小的正p
-
-
-
 }
