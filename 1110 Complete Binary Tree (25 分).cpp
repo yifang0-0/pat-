@@ -13,18 +13,21 @@ struct node{
 int num=0;
 int maxID;
 queue <int>dfsqueue;
-void dfs(int nodeID,vector<struct node> nodesInfo){
+vector<struct node> nodesInfo(22);
+void dfs(int nodeID){
     nodesInfo[nodeID].num=num;
     num++;
     maxID=nodeID;
+    //cout<<maxID<<"<-nodeid "<<num-1<<endl;
     int left=nodesInfo[nodeID].left;
     int right=nodesInfo[nodeID].right;
+    //cout<<"left right"<<left<<" "<<right<<endl;
     if(left!=-1)dfsqueue.push(left);
     if(right!=-1)dfsqueue.push(right);
     while(dfsqueue.size()>0){
         int curid=dfsqueue.front();       
         dfsqueue.pop();
-        dfs(curid,nodesInfo);
+        dfs(curid);
     }
 }
 int bTree=1;
@@ -33,11 +36,22 @@ int ifBtree(int nodeID,vector<struct node> nodesInfo){
     int right=nodesInfo[nodeID].right;
     int num=nodesInfo[nodeID].num;
     if(left!=-1){
-        if((num*2+1)!=nodesInfo[left].num)bTree=0;
+        if((num*2+1)!=nodesInfo[left].num){
+            bTree=0;
+            // cout<<"num*2+1"<<num*2+1<<" nodesInfo[left].num"<<nodesInfo[left].num<<endl;
+            // //return;
+            // cout<<nodeID<<"<-nodeid num->"<<num<<endl;
+            }
         else ifBtree(left,nodesInfo);
     }
     if(right!=-1){
-        if((num*2+2)!=nodesInfo[right].num)bTree=0;
+        if((num*2+2)!=nodesInfo[right].num)
+        {
+            bTree=0;
+            // cout<<"num*2+2"<<num*2+2<<" nodesInfo[left].right"<<nodesInfo[right].num<<endl;
+            // cout<<nodeID<<"<-nodeid num->"<<num<<endl;
+
+        }
         else ifBtree(right,nodesInfo);
     }
 }
@@ -45,11 +59,12 @@ int ifBtree(int nodeID,vector<struct node> nodesInfo){
 int main(){
     int n;
     cin>>n;
-    vector<struct node> nodesInfo(n);
+    
     int *used=new int[n];
     for(int i=0;i<n;i++){
         used[i]=-1;
     }
+    getchar();
     for(int i=0;i<n;i++){
         char a,b;
         scanf("%c %c\n",&a,&b);
@@ -72,7 +87,8 @@ int main(){
             break;
         }
     }
-    dfs(root,nodesInfo);
+    dfs(root);
+    
     ifBtree(root,nodesInfo);
     if(bTree==1){
         cout<<"Yes "<<maxID<<endl;
