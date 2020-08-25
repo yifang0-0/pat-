@@ -4,7 +4,8 @@
 #include <vector>
 #include <queue>
 //判断是否完全二叉树
-//15:20-
+//实际上可以根据节点标号的规律直接在生成的时候完成判断!
+//https://github.com/yifang0-0/pat-/edit/master/%23%20%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97.md
 using namespace std;
 struct node{
     int left,right,num;
