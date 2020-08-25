@@ -1,4 +1,4 @@
-//17:08-
+//17:08-17:31
 /*
 the number of coupons NC  1<= NC, NP <= 105
 coupon integers.
