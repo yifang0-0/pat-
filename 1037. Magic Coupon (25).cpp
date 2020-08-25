@@ -4,10 +4,8 @@ the number of coupons NC  1<= NC, NP <= 105
 coupon integers.
 the number of products NP
 a line with NP product values.
-
 output:能拿回的最大金额
 coupon:能拿回n倍金额
-
 */
 #include <iostream>
 #include <cstdio>
