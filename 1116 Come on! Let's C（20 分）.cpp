@@ -6,7 +6,7 @@ using namespace std;
 string outputs[5]={
     "Checked",
     "Mystery Award",
-    "Minion",//ranked as a prime number
+    "Minion",//as a prime number
     "Chocolate",
     "Are you kidding?"
 };
