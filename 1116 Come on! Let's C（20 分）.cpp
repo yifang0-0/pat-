@@ -10,9 +10,7 @@ string outputs[5]={
     "Chocolate",
     "Are you kidding?"
 };
-
 void buildPrime(int* p,int maxNum){
-    
     for(int i=3;i<=maxNum;i++){
         int isPrime=1;
         for(int j=2;;j++){
@@ -30,7 +28,7 @@ void buildPrime(int* p,int maxNum){
 int main(){
     string name;
     map<string , int>infom;
-    vector<pair<string,int > >outinfo;
+    //vector<pair<string,int > >outinfo;
     int n,k;
     cin>>n;
     for(int i=0;i<n;i++){
@@ -45,26 +43,28 @@ int main(){
     cin>>k;
     for(int i=0;i<k;i++){
         cin>>name;
+        cout<<name<<": ";
         if(infom.find(name)==infom.end()){
-            outinfo.push_back(make_pair(name,4));
+            //outinfo.push_back(make_pair(name,4));
         }
         else {
-            if(infom[name]==-1)  outinfo.push_back(make_pair(name,0));        
+            if(infom[name]==-1) cout<< outputs[0]<<endl;
+                //outinfo.push_back(make_pair(name,0));        
             else if(isprime[infom[name]]==1){
-                 outinfo.push_back(make_pair(name,2));        
+                cout<< outputs[2]<<endl;       
                 infom[name]=-1;
             }
             else if(infom[name]==1){
-                 outinfo.push_back(make_pair(name,1));        
+                cout<< outputs[1]<<endl;   
                 infom[name]=-1;
             }
             else{
-                 outinfo.push_back(make_pair(name,3));
+                cout<< outputs[3]<<endl;
                 infom[name]=-1;
             }
         }
     }
-    for(int i=0;i<k;i++){
-        cout<<outinfo[i].first<<": "<<outputs[outinfo[i].second]<<endl;
-    }
+   // for(int i=0;i<k;i++){
+   //     cout<<outinfo[i].first<<": "<<outputs[outinfo[i].second]<<endl;
+   // }
 }
