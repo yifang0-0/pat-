@@ -1,0 +1,57 @@
+#include <algorithm>
+#include <map>
+#include <string>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+int main(){
+    int treenum=0;
+    int pnum,snum;
+    cin>>pnum;
+    map<int,int>birdstotree;
+    map<int,int>birdsinatree;
+    map<int,int>same;
+    map<int,int>countTree;
+    for(int i=0;i<pnum;i++){
+        int bnum;
+        cin>>bnum;
+      //  cout<<bnum<<endl;
+        int *blist=new int[bnum];
+        int curtreenum=i;
+        int newbird;
+        for(int j=0;j<bnum;j++){
+            cin>>newbird;
+            if(birdstotree.find(newbird)!=birdstotree.end()){
+              //  cout<<"change "<<birdstotree[newbird]<<" TO "<<curtreenum<<endl;
+                same[birdstotree[newbird]]=curtreenum;
+                countTree.erase(birdstotree[newbird]);
+            }
+            birdstotree[newbird]=curtreenum;
+        }
+        treenum-=(same.size()+1);
+        map<int,int>::iterator it; 
+        //cout<<"birdid tree"<<endl;
+        for(it=birdstotree.begin();it!=birdstotree.end();it++){
+            int birdid=it->first;
+            int treeid=it->second;
+            if(same.find(treeid)!=same.end()){
+               // cout<<"treeid repeted"<<treeid<<endl;
+                birdstotree[birdid]=curtreenum;
+            }
+            //cout<< birdid<<' '<< birdstotree[birdid]<<endl;
+        }
+       // cout<<"end"<<endl;
+        same.clear();
+        countTree[curtreenum]=1;
+    }
+    cin>>snum;
+    
+    cout<<countTree.size()<<' '<<birdstotree.size()<<endl;
+    for(int i=0;i<snum;i++){
+        int birda,birdb;
+        cin>>birda>>birdb;
+        if(birdstotree[birda]==birdstotree[birdb])cout<<"Yes"<<endl;
+        else cout<<"No"<<endl;
+    }
+}
