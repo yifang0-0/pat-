@@ -1,6 +1,7 @@
 #include <map>
 #include <iostream>
 using namespace std;
+//改成scanf也没用···算了 换个算法吧
 int main(){
     int pnum,snum;
     cin>>pnum;
