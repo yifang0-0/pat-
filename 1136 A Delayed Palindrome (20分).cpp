@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+/*考虑第一次输入就是回文数的情况！！！*/
 using namespace std;
 vector<char>res;
 void sum(string a,string b){
